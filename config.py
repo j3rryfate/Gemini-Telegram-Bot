@@ -1,34 +1,35 @@
 from google.genai import types
+
 conf = {
-    "error_info":           "⚠️⚠️⚠️\nSomething went wrong !\nplease try to change your prompt or contact the admin !",
+    "error_info": "⚠️⚠️⚠️\nSomething went wrong !\nplease try to change your prompt or contact the admin !",
     "before_generate_info": "🤖Generating🤖",
-    "download_pic_notify":  "🤖Loading picture🤖",
-    "model_1":              "gemini-2.5-flash-preview-04-17",
-    "model_2":              "gemini-2.5-pro",
-    "model_3":              "gemini-2.0-flash-preview-image-generation",#for draw
+    "download_pic_notify": "🤖Loading picture🤖",
+    "model_1": "gemini-2.5-flash",
+    "model_2": "gemini-2.5-pro",
+    "model_3": "gemini-2.5-pro",  # Replaced deprecated preview model with stable model
     "streaming_update_interval": 0.5,  # Streaming answer update interval (seconds)
 }
 
 safety_settings = [
     types.SafetySetting(
         category="HARM_CATEGORY_HARASSMENT",
-        threshold="BLOCK_NONE",
+        threshold="BLOCK_MEDIUM_AND_ABOVE",
     ),
     types.SafetySetting(
         category="HARM_CATEGORY_HATE_SPEECH",
-        threshold="BLOCK_NONE",
+        threshold="BLOCK_MEDIUM_AND_ABOVE",
     ),
     types.SafetySetting(
         category="HARM_CATEGORY_SEXUALLY_EXPLICIT",
-        threshold="BLOCK_NONE",
+        threshold="BLOCK_MEDIUM_AND_ABOVE",
     ),
     types.SafetySetting(
         category="HARM_CATEGORY_DANGEROUS_CONTENT",
-        threshold="BLOCK_NONE",
+        threshold="BLOCK_MEDIUM_AND_ABOVE",
     ),
     types.SafetySetting(
         category="HARM_CATEGORY_CIVIC_INTEGRITY",
-        threshold="BLOCK_NONE",
+        threshold="BLOCK_MEDIUM_AND_ABOVE",
     )
 ]
 
